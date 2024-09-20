@@ -4,12 +4,10 @@ import "./card.css";
 
 type Props = {
   item: TCard;
-  onFlipCard: (item: TCard) => void;
 };
 
-export const Card = ({ item, onFlipCard }: Props) => {
-  const { isCardFlipped } = useCard();
-
+export const Card = ({ item }: Props) => {
+  const { isCardFlipped, flipCard } = useCard();
   return (
     <button
       className={`btn btn-${
@@ -19,7 +17,7 @@ export const Card = ({ item, onFlipCard }: Props) => {
           ? "primary"
           : "secondary"
       } card-button`}
-      onClick={() => onFlipCard(item)}
+      onClick={() => flipCard(item)}
     >
       {isCardFlipped(item) || item.isFlipped ? `${item.value}` : "X"}
     </button>
