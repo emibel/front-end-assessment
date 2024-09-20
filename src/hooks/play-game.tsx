@@ -29,7 +29,9 @@ export const usePlayGame = () => {
         newGame.selectedCard1 = null;
         newGame.selectedCard2 = null;
         newGame.players[newGame.iteration]++;
-      } else if (
+      }
+
+      if (
         game.selectedCard1?.brotherId !== game.selectedCard2?.id &&
         game.selectedCard2?.brotherId !== game.selectedCard1?.id
       ) {
@@ -40,6 +42,7 @@ export const usePlayGame = () => {
         newGame.selectedCard1 = null;
         newGame.selectedCard2 = null;
       }
+
       setTimeout(() => {
         setGame({ ...newGame });
       }, 2000);

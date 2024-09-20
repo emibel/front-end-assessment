@@ -1,8 +1,10 @@
 import { atom } from "jotai";
 import { TCard } from "../types/card";
 import { playersCount } from "../constants/game";
+import { shuffle } from "lodash";
 
-const list: TCard[] = [
+const initialScore = [...Array(playersCount).fill(0)];
+const initialList: TCard[] = [
   { id: `0`, brotherId: "10", value: 0, isFlipped: false },
   { id: `1`, brotherId: "11", value: 1, isFlipped: false },
   { id: `2`, brotherId: "12", value: 2, isFlipped: false },
@@ -13,7 +15,7 @@ const list: TCard[] = [
   { id: `7`, brotherId: "17", value: 7, isFlipped: false },
   { id: `8`, brotherId: "18", value: 8, isFlipped: false },
   { id: `9`, brotherId: "19", value: 9, isFlipped: false },
-  { id: `10`, brotherId: "0", value: 10, isFlipped: false },
+  { id: `10`, brotherId: "0", value: 0, isFlipped: false },
   { id: `11`, brotherId: "1", value: 1, isFlipped: false },
   { id: `12`, brotherId: "2", value: 2, isFlipped: false },
   { id: `13`, brotherId: "3", value: 3, isFlipped: false },
@@ -32,12 +34,13 @@ export type TGameStore = {
   players: number[];
   iteration: number;
 };
-export const gameAtom: TGameStore = {
-  list,
+
+export const getGameAtom = (): TGameStore => ({
+  list: [...shuffle(initialList)],
   selectedCard1: null,
   selectedCard2: null,
-  players: Array(playersCount).fill(0),
+  players: [...initialScore],
   iteration: 0,
-};
+});
 
-export const gameStore = atom(gameAtom);
+export const gameStore = atom(getGameAtom());

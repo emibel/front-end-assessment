@@ -1,0 +1,6 @@
+.player {
+  font-size: x-large;
+  &.selected {
+    font-weight: 900;
+  }
+}

@@ -11,9 +11,9 @@ export const CardList = () => {
 
   return (
     <div className="container">
-      <div className="row m-3">
+      <div className="row d-flex justify-content-center">
         {list.map((item: TCard) => (
-          <div key={item.id} className="col">
+          <div key={item.id} className="col-2 m-3">
             <Card item={item} onFlipCard={flipCard} />
           </div>
         ))}

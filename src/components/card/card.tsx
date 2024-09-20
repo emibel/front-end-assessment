@@ -1,5 +1,4 @@
 import { TCard } from "../../types/card";
-import { Button } from "reactstrap";
 import { useCard } from "../../hooks/card";
 import "./card.css";
 
@@ -12,20 +11,17 @@ export const Card = ({ item, onFlipCard }: Props) => {
   const { isCardFlipped } = useCard();
 
   return (
-    <Button
-      onClick={() => onFlipCard(item)}
-      color={
+    <button
+      className={`btn btn-${
         isCardFlipped(item)
           ? "success"
           : item.isFlipped
           ? "primary"
           : "secondary"
-      }
-      className="card-button"
+      } card-button`}
+      onClick={() => onFlipCard(item)}
     >
-      {isCardFlipped(item) || item.isFlipped
-        ? `${item.id} - ${item.brotherId}`
-        : "X"}
-    </Button>
+      {isCardFlipped(item) || item.isFlipped ? `${item.value}` : "X"}
+    </button>
   );
 };
