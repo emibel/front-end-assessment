@@ -8,8 +8,6 @@ export const usePlayGame = () => {
   const [game, setGame] = useAtom(gameStore);
 
   useEffect(() => {
-    console.log("game: ", game);
-
     if (game.selectedCard1 && game.selectedCard2) {
       const newGame: TGameStore = { ...game };
       if (
