@@ -2,8 +2,10 @@ import { useGame } from "../hooks/game";
 import { Card } from "./card";
 
 export const CardList = () => {
-  const { game, flipCard } = useGame();
-  const { list } = game;
+  const {
+    game: { list },
+    flipCard,
+  } = useGame();
 
   return (
     <div className="container">
