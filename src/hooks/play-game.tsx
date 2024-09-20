@@ -43,7 +43,7 @@ export const usePlayGame = () => {
 
       setTimeout(() => {
         setGame({ ...newGame });
-      }, 2000);
+      }, 500);
     }
   }, [game, setGame]);
 };
