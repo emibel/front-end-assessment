@@ -1,13 +1,13 @@
 import { useAtom } from "jotai";
 import { gameStore } from "../atoms/cards";
-import { useGame } from "../hooks/game";
+import { useCard } from "../hooks/card";
 import { TCard } from "../types/card";
 import { Card } from "./card/card";
 
 export const CardList = () => {
   const [game] = useAtom(gameStore);
   const { list } = game;
-  const { flipCard } = useGame();
+  const { flipCard } = useCard();
 
   return (
     <div className="container">
