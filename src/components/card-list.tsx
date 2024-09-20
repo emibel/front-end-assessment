@@ -1,16 +1,18 @@
+import { useAtom } from "jotai";
+import { gameStore } from "../atoms/cards";
 import { useGame } from "../hooks/game";
-import { Card } from "./card";
+import { TCard } from "../types/card";
+import { Card } from "./card/card";
 
 export const CardList = () => {
-  const {
-    game: { list },
-    flipCard,
-  } = useGame();
+  const [game] = useAtom(gameStore);
+  const { list } = game;
+  const { flipCard } = useGame();
 
   return (
     <div className="container">
       <div className="row m-3">
-        {list.map((item) => (
+        {list.map((item: TCard) => (
           <div key={item.id} className="col">
             <Card item={item} onFlipCard={flipCard} />
           </div>

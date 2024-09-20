@@ -1,8 +1,9 @@
+import { useAtom } from "jotai";
+import { gameStore } from "../atoms/cards";
 import { TCard } from "../types/card";
-import { useGame } from "./game";
 
 export const useCard = () => {
-  const { game } = useGame();
+  const [game] = useAtom(gameStore);
   const isCardFlipped = (card: TCard): boolean =>
     game.selectedCard1?.id === card.id || game.selectedCard2?.id === card.id;
 

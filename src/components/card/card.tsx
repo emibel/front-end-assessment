@@ -1,6 +1,6 @@
-import { TCard } from "../types/card";
+import { TCard } from "../../types/card";
 import { Button } from "reactstrap";
-import { useCard } from "../hooks/card";
+import { useCard } from "../../hooks/card";
 import "./card.css";
 
 type Props = {
