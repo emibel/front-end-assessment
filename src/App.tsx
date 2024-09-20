@@ -1,10 +1,13 @@
-import './App.css'
-import Header from './components/header'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Header from "./components/header";
+import { CardList } from "./components/card-list";
 
 const App = () => (
-    <>
-      <Header />
-    </>
-)
+  <>
+    <Header />
+    <CardList />
+  </>
+);
 
-export default App
+export default App;
